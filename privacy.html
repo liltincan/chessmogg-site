@@ -22,7 +22,7 @@
   <h1>Privacy Policy</h1>
   <p class="updated">Last updated: August 25, 2026</p>
 
-  <pre>Summary: Most game processing occurs on your device. When you use Coach, the app sends chess-position data to Lichess and sends your Coach message and chess context to OpenAI. If you purchase a subscription, Apple and our subscription provider process the purchase.
+  <pre>Summary: Most game processing occurs on your device. When you use Coach, the app may send chess-position data to Lichess and sends your Coach message and chess context through ChessMogg's Cloudflare service to OpenAI. Cloudflare stores pseudonymous usage counters to enforce the weekly allowance and reasonable abuse limits. If you purchase a subscription, Apple and RevenueCat process the purchase.
 
 1. Data we collect
 We do not sell personal data. The app does not currently require a ChessMogg account.
@@ -32,12 +32,14 @@ The Chess.com username you enter is used to request that account's public games 
 
 3. Data fetched from third parties
 - Chess.com public API: public game archives and public profile ratings for the username you enter.
-- Lichess cloud evaluation: the current FEN position is sent to request a cached Stockfish evaluation.
-- OpenAI API: your Coach question, current FEN, game moves, recent Coach conversation, and chess-analysis evidence are sent in one request to generate the Coach reply.
-These requests go directly from your device to the named service, which will see your IP address as with any internet request. Each service's privacy policy applies to its processing. Bundled opening statistics and puzzles do not make a network request.
+- Lichess cloud evaluation: the current FEN position may be sent directly from your device to request a cached evaluation.
+- ChessMogg Coach service on Cloudflare: your Coach question, current FEN, game moves, recent Coach conversation, and chess-analysis evidence are sent to generate a reply. Cloudflare will receive ordinary network information such as your IP address. ChessMogg does not log question or answer text in this service.
+- OpenAI API: the Cloudflare service forwards the same bounded Coach question and chess context to OpenAI in one request to generate the reply; the OpenAI key is never stored in the app.
+- RevenueCat: the Coach service may send the app-user identifier already issued by RevenueCat to verify an active Pro entitlement after the free allowance is exhausted.
+Each service's privacy policy applies to its processing. Bundled opening statistics and puzzles do not make a network request.
 
 4. On-device processing
-Game parsing, the analysis shown elsewhere in the app, and Coach opponent moves run locally on your device using Arasan. Coach position evidence may also use Lichess's cached evaluation, while language generation uses OpenAI as described above. Opening statistics and puzzles are read from databases derived from Lichess's public CC0 exports.
+Game parsing, the analysis shown elsewhere in the app, and Coach opponent moves run locally on your device using Arasan. Coach position evidence may also use Lichess's cached evaluation, while language generation uses the Cloudflare and OpenAI services described above. Opening statistics and puzzles are read from databases derived from Lichess's public CC0 exports.
 
 5. Subscriptions
 If subscriptions are enabled, purchases are processed by Apple and RevenueCat. They may process purchase history, subscription status, app-user identifiers, device information, and diagnostic data under their own privacy policies. ChessMogg does not receive your full payment-card details.
@@ -49,7 +51,7 @@ The app contains no advertising SDK. RevenueCat is used only for subscription pu
 The app does not knowingly collect any personal information from anyone, including children.
 
 8. Retention, deletion, and your choices
-Cached usernames and parsed games remain only on your device until you choose Clear loaded games or uninstall the app. Coach conversation history is held in the app's memory for the current session; ChessMogg does not operate a server that stores it. You can stop third-party processing by not using Coach. Apple, RevenueCat, Chess.com, Lichess, and OpenAI control data they process under their own policies. Contact us at the address below with privacy questions or requests.
+Cached usernames and parsed games remain only on your device until you choose Clear loaded games or uninstall the app. Coach conversation history is held in the app's memory for the current session and is transmitted only when needed to answer a Coach message; the ChessMogg Coach service does not store question or answer text. It stores HMAC-pseudonymized weekly usage counters for up to 90 days and short-lived request-limit counters for up to two days. You can stop third-party processing by not using Coach. Apple, RevenueCat, Chess.com, Lichess, Cloudflare, and OpenAI control data they process under their own policies. Contact us at the address below with privacy questions or requests.
 
 9. Changes
 If our data practices change, this policy will be updated and material changes will be announced in the app or release notes.
