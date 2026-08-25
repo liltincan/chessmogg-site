@@ -20,22 +20,24 @@
   </header>
 
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: August 9, 2026</p>
+  <p class="updated">Last updated: August 25, 2026</p>
 
-  <pre>Summary: ChessMogg processes chess games and engine analysis on your device. If you purchase a subscription, Apple and our subscription provider process the purchase.
+  <pre>Summary: Most game processing occurs on your device. When you use Coach, the app sends chess-position data to Lichess and sends your Coach message and chess context to OpenAI. If you purchase a subscription, Apple and our subscription provider process the purchase.
 
 1. Data we collect
 We do not sell personal data. The app does not currently require a ChessMogg account.
 
 2. Data you provide
-The Chess.com username you enter is used only to request that account's public games directly from Chess.com's public API, from your device. It is kept in the app's memory for your session and is not transmitted to us.
+The Chess.com username you enter is used to request that account's public games directly from Chess.com's public API, from your device. The username and parsed public games may be cached locally on your device so the app can restore them without downloading them again. They are not transmitted to ChessMogg.
 
 3. Data fetched from third parties
 - Chess.com public API: public game archives and public profile ratings for the username you enter.
-Chess.com requests go directly from your device to that service, which will see your IP address as with any internet request. Its privacy policy applies to that processing. Bundled opening statistics and puzzles do not make a network request.
+- Lichess cloud evaluation: the current FEN position is sent to request a cached Stockfish evaluation.
+- OpenAI API: your Coach question, current FEN, game moves, recent Coach conversation, and chess-analysis evidence are sent in one request to generate the Coach reply.
+These requests go directly from your device to the named service, which will see your IP address as with any internet request. Each service's privacy policy applies to its processing. Bundled opening statistics and puzzles do not make a network request.
 
 4. On-device processing
-Game parsing and Arasan engine analysis run locally on your device. Opening statistics and puzzles are read from databases derived from Lichess's public CC0 exports.
+Game parsing, the analysis shown elsewhere in the app, and Coach opponent moves run locally on your device using Arasan. Coach position evidence may also use Lichess's cached evaluation, while language generation uses OpenAI as described above. Opening statistics and puzzles are read from databases derived from Lichess's public CC0 exports.
 
 5. Subscriptions
 If subscriptions are enabled, purchases are processed by Apple and RevenueCat. They may process purchase history, subscription status, app-user identifiers, device information, and diagnostic data under their own privacy policies. ChessMogg does not receive your full payment-card details.
@@ -46,10 +48,13 @@ The app contains no advertising SDK. RevenueCat is used only for subscription pu
 7. Children
 The app does not knowingly collect any personal information from anyone, including children.
 
-8. Changes
+8. Retention, deletion, and your choices
+Cached usernames and parsed games remain only on your device until you choose Clear loaded games or uninstall the app. Coach conversation history is held in the app's memory for the current session; ChessMogg does not operate a server that stores it. You can stop third-party processing by not using Coach. Apple, RevenueCat, Chess.com, Lichess, and OpenAI control data they process under their own policies. Contact us at the address below with privacy questions or requests.
+
+9. Changes
 If our data practices change, this policy will be updated and material changes will be announced in the app or release notes.
 
-9. Contact
+10. Contact
 learnwithlinguid@gmail.com</pre>
 
   <footer>
